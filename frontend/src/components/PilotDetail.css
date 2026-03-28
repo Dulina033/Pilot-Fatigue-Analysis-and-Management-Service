@@ -1,0 +1,482 @@
+/* src/components/PilotDetail.css  */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+/* Main Container - Soft Aesthetic Background */
+.pilot-detail-page {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #94bee0, #94bee0);
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  padding: 32px;
+  gap: 32px;
+}
+
+/* LEFT PANEL - Soft, Aesthetic Card */
+.pilot-info {
+  width: 420px; 
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 40px;
+  padding: 36px 32px; 
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 20px 40px -20px rgba(0, 0, 0, 0.15),
+    inset 0 1px 2px rgba(199, 96, 96, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle Background Texture */
+.pilot-info::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle at top right,
+    rgba(230, 200, 180, 0.3),
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Pilot Name - Elegant & Soft */
+.pilot-info h2 {
+  margin: 0 0 24px 0;
+  font-size: 32px;
+  font-weight: 600;
+  color: #2d2a24;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  position: relative;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(180, 160, 140, 0.2);
+}
+
+/* Info Grid Layout */
+.pilot-info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+/* Info Items - Soft Rounded Cards */
+.info-item {
+  background: rgba(251, 252, 251, 0.7);
+  backdrop-filter: blur(4px);
+  border-radius: 28px;
+  padding: 18px 22px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(200, 180, 160, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.info-item:hover {
+  background: rgba(250, 245, 240, 0.9);
+  border-color: rgba(180, 155, 130, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -12px rgba(100, 70, 40, 0.2);
+}
+
+.info-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8f7a68;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.info-icon {
+  font-size: 18px;
+  opacity: 0.8;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+}
+
+.info-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3a342c;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  line-height: 1.4;
+}
+
+/* Score Display - Aesthetic Circle */
+.score-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.score-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 600;
+  background: white;
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.1);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  position: relative;
+}
+
+.score-circle.low {
+  color: #9bb88b;
+  background: #f4f9f0;
+}
+
+.score-circle.medium {
+  color: #e6b87a;
+  background: #fef7e8;
+}
+
+.score-circle.high {
+  color: #e49b9b;
+  background: #fef0f0;
+}
+
+.score-details {
+  flex: 1;
+}
+
+.score-label {
+  font-size: 13px;
+  color: #8f7a68;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.score-value {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Risk Badge - Soft Pill */
+.risk-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 15px;
+  background: white;
+  border: 1px solid;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.risk-badge.low {
+  background: #f4f9f0;
+  color: #5d8c5d;
+  border-color: #d0e0c0;
+}
+
+.risk-badge.medium {
+  background: #fef7e8;
+  color: #b88a4a;
+  border-color: #f0dbb8;
+}
+
+.risk-badge.high {
+  background: #fef0f0;
+  color: #b16262;
+  border-color: #f0c8c8;
+}
+
+.risk-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 10px;
+  animation: softPulse 2s infinite;
+}
+
+@keyframes softPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+}
+
+/* Affected Areas - Aesthetic Tags */
+.areas-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.area-tag {
+  background: white;
+  border: 1px solid rgba(180, 160, 140, 0.2);
+  border-radius: 30px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b5a4a;
+  transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.area-tag:hover {
+  background: #ffffff;
+  border-color: #c0a890;
+  color: #3a342c;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(100, 70, 40, 0.08);
+}
+
+/* BUTTON CONTAINER - FIXED WIDER */
+.button-container {
+  display: flex;
+  gap: 16px; /* INCREASED gap */
+  margin-top: 32px; /* INCREASED margin */
+  width: 100%;
+}
+
+/* BUTTON STYLES - WIDER AND BALANCED */
+.pilot-info button {
+  padding: 16px 24px; /* INCREASED padding */
+  font-size: 17px; /* SLIGHTLY larger */
+  border: none;
+  cursor: pointer;
+  border-radius: 10px; /* SLIGHTLY more rounded */
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background-color: #515a01;
+  color: #f5f6f8;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 12px rgba(81, 90, 1, 0.2);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1; /* Both buttons take equal space */
+  min-width: 0; /* Prevents overflow */
+  text-overflow: ellipsis;
+}
+
+
+.pilot-info button:first-child {
+  flex: 1;
+}
+
+
+.pilot-info button:last-child {
+  flex: 1.2; /* EXTRA width for longer text */
+}
+
+.pilot-info button:hover {
+  background-color: #312e01;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -8px rgba(81, 90, 1, 0.4);
+}
+
+.pilot-info button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(81, 90, 1, 0.2);
+}
+
+/* Remove shine effect */
+.pilot-info button::before {
+  display: none;
+}
+
+/* RIGHT PANEL - 3D Model Section */
+.model-canvas {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+/* Canvas Container - Aesthetic Frame */
+.canvas-container {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 48px;
+  padding: 24px;
+  box-shadow:
+    0 30px 50px -25px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  width: 100%;
+  aspect-ratio: 1/1;
+  max-width: 700px;
+  align-self: center;
+  transition: all 0.4s ease;
+}
+
+.canvas-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 40px 60px -25px rgba(110, 80, 50, 0.25);
+  border-color: rgba(200, 180, 160, 0.3);
+}
+
+.canvas-container > div {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 36px !important;
+  overflow: hidden !important;
+  background: #f0eae4 !important;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+/* Legend Card - Aesthetic */
+.legend-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 100px;
+  padding: 20px 36px; /* INCREASED padding */
+  display: flex;
+  align-items: center;
+  gap: 28px; /* INCREASED gap */
+  width: fit-content;
+  max-width: 700px;
+  align-self: center;
+  box-shadow: 0 15px 30px -15px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.legend-icon {
+  width: 48px; /* SLIGHTLY larger */
+  height: 48px;
+  background: linear-gradient(135deg, #e8ddd2, #f5eee8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #9b8b6b;
+  border: 1px solid rgba(200, 180, 160, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.legend-text {
+  font-size: 15px; /* SLIGHTLY larger */
+  color: #5f5548;
+  letter-spacing: 0.2px;
+  line-height: 1.7;
+}
+
+.legend-text strong {
+  color: #3a342c;
+  font-weight: 600;
+}
+
+.legend-text .low {
+  color: #9bb88b;
+  font-weight: 500;
+}
+.legend-text .medium {
+  color: #e6b87a;
+  font-weight: 500;
+}
+.legend-text .high {
+  color: #e49b9b;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .pilot-info {
+    width: 380px; /* Slightly smaller on medium screens */
+    padding: 32px 24px;
+  }
+
+  .pilot-info button {
+    font-size: 16px;
+    padding: 14px 18px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pilot-detail-page {
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .pilot-info {
+    width: 100%;
+    max-width: 500px; 
+    margin: 0 auto; /* Center */
+  }
+
+  .canvas-container {
+    max-width: 100%;
+  }
+
+  .legend-card {
+    flex-direction: column;
+    text-align: center;
+    border-radius: 40px;
+    padding: 24px;
+  }
+
+  .button-container {
+    flex-direction: row; 
+    gap: 12px;
+  }
+
+  .pilot-info button {
+    font-size: 15px;
+    padding: 14px 12px;
+  }
+
+  .pilot-info button:first-child,
+  .pilot-info button:last-child {
+    flex: 1; /* Equal on mobile */
+  }
+}
+
+@media (max-width: 600px) {
+  .button-container {
+    flex-direction: column; /* Stack only on very small screens */
+    gap: 10px;
+  }
+
+  .pilot-info button {
+    width: 100%;
+  }
+}
+
+/* Loading State */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0eae4 25%, #f5f0ea 50%, #f0eae4 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 40px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

@@ -1,0 +1,91 @@
+.upload-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 30px;
+  background: linear-gradient(135deg, #94bee0, #94bee0);
+  font-family: Arial, sans-serif;
+}
+
+.upload-text {
+  flex: 1;
+  color: white;
+  padding-right: 40px;
+}
+
+.upload-text h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.upload-text p {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.upload-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  width: 1200px;
+  text-align: center;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  
+}
+
+.upload-logo {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.browse-btn {
+  display: inline-block;
+  background-color:  #515a01;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.browse-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(237, 241, 241, 0.4);
+}
+
+.file-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  text-align: left;
+}
+
+.file-list li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding: 5px 0;
+  font-size: 0.9rem;
+}
+
+.file-size {
+  color: gray;
+  font-size: 0.8rem;
+}
+
+.upload-btn {
+  margin-top: 15px;
+  padding: 8px 15px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.upload-btn:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}

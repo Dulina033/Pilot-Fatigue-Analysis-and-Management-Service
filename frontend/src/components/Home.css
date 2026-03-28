@@ -1,0 +1,355 @@
+/* ------------------------- */
+/* Global Reset and Base     */
+/* ------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #000;
+ font-family: 'Playfair Display', serif;
+}
+
+/* ------------------------- */
+/* Homepage Wrapper          */
+/* ------------------------- */
+.homepage {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color:  linear-gradient(135deg, #94bee0, #94bee0);
+}
+
+/* ------------------------- */
+/* Hero Section (Full Width) */
+/* ------------------------- */
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f3d9e0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background:
+    linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
+    url("/images/home-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* ------------------------- */
+/* Hero Content Layout       */
+/* ------------------------- */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  height: 100%;
+  
+}
+
+/* Left side text */
+.hero-text {
+  flex: 1;
+  max-width: 600px;
+  font-family: 'Playfair Display', serif;
+}
+
+.hero-text h1 {
+  font-size: 52px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+}
+
+.hero-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #eaeaea;
+  font-family: 'Playfair Display', serif;
+}
+
+/* ------------------------- */
+/* Right side boxes          */
+/* ------------------------- */
+.hero-boxes {
+  display: flex;
+  flex-direction: row; /* 🔥 now boxes are side by side */
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex: 1;
+}
+
+/* Frosted Glass Box Style */
+.action-box {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 10px 10px;
+  border-radius: 10px;
+  width: 300px;
+  height: 90px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.action-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(237, 241, 241, 0.4);
+}
+
+/* Button inside box */
+.action-box .btn {
+  padding: 12px 28px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 100%;
+}
+
+.btn.red {
+  background-color: #515a01;
+  color: #f5f6f8;
+}
+
+.btn.red:hover {
+  background-color: #312e01;
+}
+
+/* ------------------------- */
+/* How It Works Section      */
+/* ------------------------- */
+.how-it-works {
+  width: 100%;
+  padding: 80px 20px;
+  text-align: center;
+  background-color:#deeef1 ;
+}
+
+.how-it-works h2 {
+  font-size: 36px;
+  color: #222;
+  margin-bottom: 10px;
+  font-family: "Bellefair", serif;
+}
+
+.how-desc {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 50px;
+  font-family: "Bellefair", serif;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.step-card {
+  background:#c2e4ee;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 300px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  text-align: left;
+  font-weight: 1000;
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgb(1, 49, 61);
+}
+
+.step-number {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #515a01;
+  font-weight: bold;
+}
+
+.step-card h3 {
+  color: #515a01;
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  color: #515a01;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ------------------------- */
+/* Footer Section            */
+/* ------------------------- */
+.footer {
+  width: 100%;
+  background-color: #111;
+  color: #ddd;
+  padding: 60px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  cursor: pointer;
+  margin: 8px 0;
+  color: #ddd;
+  transition: color 0.3s ease;
+}
+
+.footer-links li:hover {
+  color: #232401;
+}
+
+.footer-contact p {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* ------------------------- */
+/* Responsive Design         */
+/* ------------------------- */
+@media (max-width: 992px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    max-width: 90%;
+    margin-bottom: 40px;
+  }
+
+  .hero-boxes {
+    flex-direction: column;
+  }
+
+  .action-box {
+    width: 90%;
+  }
+}
+
+/* ------------------------- */
+/* Guidance Section */
+/* ------------------------- */
+.guidance-section {
+  padding: 80px 20px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.guidance-section h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  font-family: "Bellefair", serif;
+}
+
+.guidance-desc {
+  margin-bottom: 50px;
+  color: #666;
+  font-size: 18px;
+}
+
+/* Row Layout */
+.guide-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+.guide-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Screenshot */
+.guide-row img {
+  width: 800px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Text */
+.guide-text {
+  max-width: 450px;
+  text-align: left;
+}
+
+.guide-text h3 {
+  color: #173150;
+  margin-bottom: 15px;
+}
+
+.guide-text p {
+  color: #444;
+  line-height: 1.6;
+}

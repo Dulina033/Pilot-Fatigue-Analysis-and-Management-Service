@@ -1,0 +1,61 @@
+/* Navbar - YOUR ORIGINAL STYLES */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #001b35;
+  color: white;
+  position: relative;
+  z-index: 100;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 90px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: proxima-nova, "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-links li:hover {
+  color: #7e8b06;
+}
+
+/* Page content */
+.page-content {
+  padding: 20px;
+  background-color: #f5f6f7;
+  min-height: calc(100vh - 200px); /* Adjust based on navbar + footer */
+}
+
+/* Layout container to push footer down */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout .page-content {
+  flex: 1;
+}

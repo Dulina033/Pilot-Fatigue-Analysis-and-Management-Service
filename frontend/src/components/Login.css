@@ -1,0 +1,332 @@
+/* src/components/Login.css 
+
+/* General Styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+/* Main Container */
+.login-container {
+  height: 100vh;
+  background: url("/images/login-background.jpg") no-repeat center center/cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: brightness(1.1); /* brighten background image */
+}
+
+/* Overlay with subtle dark tint and no blur */
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+  justify-content: space-between;
+}
+
+/* Center the overlay content (login box) vertically and horizontally */
+.centered-overlay {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  height: 100%;
+}
+
+/* Login Box Styling */
+.login-box {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 40px 30px;
+  border-radius: 20px;
+  width: 500px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  margin: auto;
+}
+
+/* Header inside login box for logo + welcome text */
+.login-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+.login-header .logo {
+  width: 150px;
+  height: auto;
+}
+
+.login-header h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Form labels */
+.login-box label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+  color: #fff;
+}
+
+/* Inputs */
+.login-box input[type="email"],
+.login-box input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.login-box input[type="email"]:focus,
+.login-box input[type="password"]:focus {
+  outline: none;
+  border-color: #515a01;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0 2px rgba(81, 90, 1, 0.2);
+}
+
+.login-box input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Password wrapper to position toggle icon */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 45px;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.toggle-password:hover {
+  opacity: 1;
+}
+
+/* ===== UPDATED FORM OPTIONS SECTION ===== */
+/* Form Options (checkbox + forgot password) */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+/* Fix checkbox alignment */
+.form-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  cursor: pointer;
+  margin: 0;
+  font-size: 14px;
+}
+
+.form-options input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #515a01; /* Your brand color */
+  margin: 0;
+}
+
+/* Forgot password link */
+.forgot-password {
+  color: #515a01; /* Your brand color */
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 14px;
+}
+
+.forgot-password:hover {
+  color: #312e01;
+  text-decoration: underline;
+}
+
+/* ===== UPDATED LOGIN BUTTON ===== */
+/* Login Button - Matching your brand */
+.login-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #515a01; /* Your brand color */
+  color: #f5f6f8;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.login-button:hover {
+  background-color: #312e01;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(81, 90, 1, 0.3);
+}
+
+.login-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(81, 90, 1, 0.2);
+}
+
+.login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Error message styling */
+.error-message {
+  color: #ef4444;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Success message styling (for forgot password) */
+.success-message {
+  color: #22c55e;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  background: rgba(34, 197, 94, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* Submitted data display (if needed) */
+.submitted-info {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #fff;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .overlay {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+  }
+
+  .login-box {
+    width: 90%;
+    max-width: 450px;
+    padding: 30px 20px;
+  }
+
+  .login-header {
+    gap: 20px;
+  }
+
+  .login-header .logo {
+    width: 120px;
+  }
+
+  .login-header h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    filter: brightness(1);
+  }
+
+  .login-box {
+    padding: 25px 15px;
+  }
+
+  .login-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .login-header h2 {
+    font-size: 28px;
+  }
+
+  .form-options {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .forgot-password {
+    align-self: flex-end;
+  }
+
+  .login-button {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* Animation for messages */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error-message,
+.success-message {
+  animation: fadeIn 0.3s ease;
+}
