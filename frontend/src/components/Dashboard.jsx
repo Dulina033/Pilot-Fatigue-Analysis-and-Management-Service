@@ -47,7 +47,11 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${config.API_URL}/api/predictions`)
+    fetch(`${config.API_URL}/api/predictions`, {
+      headers: {
+        Authorization: `Bearer ${config.API_KEY}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         const withRisk = (data || []).map((p) => {

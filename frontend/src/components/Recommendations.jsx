@@ -13,7 +13,11 @@ export default function Recommendations() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch(`${config.API_URL}/api/recommendations/${pilotId}`)
+    fetch(`${config.API_URL}/api/recommendations/${pilotId}`, {
+      headers: {
+        Authorization: `Bearer ${config.API_KEY}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

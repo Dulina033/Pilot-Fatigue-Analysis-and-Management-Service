@@ -32,12 +32,14 @@ export default function UploadRoster() {
     try {
       const response = await fetch(`${config.API_URL}/api/upload-roster`, {
         method: "POST",
+        headers: {
+          Authorization: `Bearer ${config.API_KEY}`,
+        },
         body: formData,
       });
       const data = await response.json();
 
       if (data.success) {
-        
         if (inputRef.current) inputRef.current.value = "";
         setFile(null);
 

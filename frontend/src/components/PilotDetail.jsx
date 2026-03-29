@@ -36,24 +36,29 @@ export default function PilotDetail() {
 
   useEffect(() => {
     if (!passedPilot && pilotId) {
-      fetch(`${config.API_URL}/api/predictions`)
+      fetch(`${config.API_URL}/api/predictions`, {
+        headers: {
+          Authorization: `Bearer ${config.API_KEY}`,
+        },
+      })
         .then((res) => res.json())
         .then((list) => {
           const found = list.find(
             (x) => String(x.pilotId) === decodeURIComponent(pilotId),
           );
           setRemotePilot(found || null);
-        });
+        })
+        .catch((err) => console.error("Failed to fetch pilot:", err));
     }
   }, [passedPilot, pilotId]);
 
   const Icon = ({ type }) => {
     const icons = {
-      id: "",
-      nationality: "",
-      score: "",
-      risk: "",
-      areas: "",
+      id: "🆔",
+      nationality: "🌍",
+      score: "📊",
+      risk: "⚠️",
+      areas: "🔴",
     };
     return <span className="info-icon">{icons[type] || "•"}</span>;
   };
@@ -154,7 +159,7 @@ export default function PilotDetail() {
         </div>
 
         <div className="legend-card">
-          <div className="legend-icon"></div>
+          <div className="legend-icon">✨</div>
           <div className="legend-text">
             <strong>Blinking areas</strong> indicate fatigue-affected body parts
             <br />
@@ -169,7 +174,9 @@ export default function PilotDetail() {
                 marginTop: "8px",
                 display: "block",
               }}
-            ></span>
+            >
+              ✦ Model auto-rotating - drag to explore
+            </span>
           </div>
         </div>
       </div>

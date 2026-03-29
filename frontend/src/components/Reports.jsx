@@ -22,7 +22,11 @@ export default function Reports() {
   const fetchReports = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${config.API_URL}/api/reports/list`);
+      const response = await fetch(`${config.API_URL}/api/reports/list`, {
+        headers: {
+          Authorization: `Bearer ${config.API_KEY}`,
+        },
+      });
       const data = await response.json();
 
       if (data.success) {
@@ -40,7 +44,11 @@ export default function Reports() {
 
   const handleDownload = async (downloadUrl, fileName) => {
     try {
-      const response = await fetch(`${config.API_URL}${downloadUrl}`);
+      const response = await fetch(`${config.API_URL}${downloadUrl}`, {
+        headers: {
+          Authorization: `Bearer ${config.API_KEY}`,
+        },
+      });
       if (!response.ok) {
         throw new Error("Download failed");
       }
@@ -59,13 +67,16 @@ export default function Reports() {
     }
   };
 
-  // FIXED: Preview should use downloadUrl (saved file) not reportUrl (generates new)
   const handlePreview = async (downloadUrl, fileName) => {
     try {
       setPreviewError("");
       console.log("Previewing:", downloadUrl);
 
-      const response = await fetch(`${config.API_URL}${downloadUrl}`);
+      const response = await fetch(`${config.API_URL}${downloadUrl}`, {
+        headers: {
+          Authorization: `Bearer ${config.API_KEY}`,
+        },
+      });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -162,7 +173,7 @@ export default function Reports() {
     <div className="reports-page">
       <div className="reports-header">
         <h1>
-          <span className="header-icon"></span>
+          <span className="header-icon">📊</span>
           Pilot Assessment Reports
         </h1>
         <p className="header-subtitle">
@@ -173,14 +184,14 @@ export default function Reports() {
       {/* Stats Cards */}
       <div className="stats-grid">
         <div className="stat-card">
-          <div className="stat-icon"></div>
+          <div className="stat-icon">📄</div>
           <div className="stat-content">
             <h3>Total Reports</h3>
             <p className="stat-number">{reports.length}</p>
           </div>
         </div>
         <div className="stat-card">
-          <div className="stat-icon"></div>
+          <div className="stat-icon">🔴</div>
           <div className="stat-content">
             <h3>High Risk</h3>
             <p className="stat-number">
@@ -189,7 +200,7 @@ export default function Reports() {
           </div>
         </div>
         <div className="stat-card">
-          <div className="stat-icon"></div>
+          <div className="stat-icon">🟠</div>
           <div className="stat-content">
             <h3>Medium Risk</h3>
             <p className="stat-number">
@@ -198,7 +209,7 @@ export default function Reports() {
           </div>
         </div>
         <div className="stat-card">
-          <div className="stat-icon"></div>
+          <div className="stat-icon">🟢</div>
           <div className="stat-content">
             <h3>Low Risk</h3>
             <p className="stat-number">
@@ -211,7 +222,7 @@ export default function Reports() {
       {/* Filters */}
       <div className="filters-section">
         <div className="search-box">
-          <span className="search-icon"></span>
+          <span className="search-icon">🔍</span>
           <input
             type="text"
             placeholder="Search by pilot name, ID, or risk level..."
@@ -226,7 +237,7 @@ export default function Reports() {
             onChange={(e) => setFilterRisk(e.target.value)}
             className="filter-select"
           >
-            <option value="all"> All Risk Levels</option>
+            <option value="all">All Risk Levels</option>
             <option value="High">High Risk</option>
             <option value="Medium">Medium Risk</option>
             <option value="Low">Low Risk</option>
@@ -313,7 +324,6 @@ export default function Reports() {
               </div>
 
               <div className="report-card-footer">
-                {/* FIXED: Use downloadUrl for preview (saved file) */}
                 <button
                   className="action-btn preview-btn"
                   onClick={() =>
@@ -321,7 +331,7 @@ export default function Reports() {
                   }
                   title="Preview Report"
                 >
-                  Preview
+                  👁️ Preview
                 </button>
                 <button
                   className="action-btn download-btn"
@@ -330,14 +340,14 @@ export default function Reports() {
                   }
                   title="Download Report"
                 >
-                  Download
+                  📥 Download
                 </button>
                 <button
                   className="action-btn view-btn"
                   onClick={() => handleViewDetails(report.pilotId)}
                   title="View Pilot Details"
                 >
-                  Details
+                  👤 Details
                 </button>
               </div>
             </div>
@@ -351,7 +361,7 @@ export default function Reports() {
         </div>
       )}
 
-      {/* Preview Modal - FIXED with error handling */}
+      {/* Preview Modal */}
       {previewUrl && (
         <div className="preview-modal" onClick={closePreview}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -364,7 +374,7 @@ export default function Reports() {
             <div className="modal-body">
               {previewError ? (
                 <div className="preview-error">
-                  <p> {previewError}</p>
+                  <p>❌ {previewError}</p>
                 </div>
               ) : (
                 <iframe

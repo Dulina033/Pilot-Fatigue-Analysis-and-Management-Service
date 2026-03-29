@@ -36,7 +36,10 @@ const Contact = () => {
     try {
       const response = await fetch(`${config.API_URL}/api/contact`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${config.API_KEY}`,
+        },
         body: JSON.stringify(formData),
       });
 
@@ -80,7 +83,7 @@ const Contact = () => {
             <div className="info-icon">📍</div>
             <h3>Visit Us</h3>
             <p>Flightara Aviation Systems</p>
-            <p> Galle Main Road</p>
+            <p>Galle Main Road</p>
             <p>Colombo, Sri Lanka</p>
           </div>
 
@@ -96,7 +99,6 @@ const Contact = () => {
             <div className="info-icon">✉️</div>
             <h3>Email Us</h3>
             <p>support@flightara.com</p>
-            
           </div>
 
           <div className="info-card">

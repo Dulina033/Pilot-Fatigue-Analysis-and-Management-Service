@@ -31,7 +31,10 @@ export default function Login() {
     try {
       const response = await fetch(`${config.API_URL}/api/login`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${config.API_KEY}`,
+        },
         body: JSON.stringify({ email, password }),
       });
 

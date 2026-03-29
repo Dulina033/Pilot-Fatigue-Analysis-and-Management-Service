@@ -54,7 +54,10 @@ export default function Register() {
 
       const response = await fetch(`${config.API_URL}/api/register`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${config.API_KEY}`,
+        },
         body: JSON.stringify(formDataToSend),
       });
 
@@ -73,7 +76,6 @@ export default function Register() {
   return (
     <div className="register-container">
       <form className="register-form" onSubmit={handleSubmit}>
-
         {/* ✅ LOGO SECTION (KEPT) */}
         <div className="form-header">
           <img src="/images/logo.png" alt="Logo" className="logo" />
@@ -85,13 +87,33 @@ export default function Register() {
 
         <h3>Personal Information</h3>
         <div className="form-group triple">
-          <input type="text" placeholder="First Name" name="fullName" onChange={handleChange} />
-          <input type="text" placeholder="Middle Name" name="middleName" onChange={handleChange} />
-          <input type="text" placeholder="Last Name" name="lastName" onChange={handleChange} />
+          <input
+            type="text"
+            placeholder="First Name"
+            name="fullName"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="Middle Name"
+            name="middleName"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            name="lastName"
+            onChange={handleChange}
+          />
         </div>
 
         <div className="form-group">
-          <input type="file" name="photo" accept="image/*" onChange={handleChange} />
+          <input
+            type="file"
+            name="photo"
+            accept="image/*"
+            onChange={handleChange}
+          />
         </div>
 
         <div className="form-group">
@@ -99,28 +121,67 @@ export default function Register() {
         </div>
 
         <div className="form-group">
-          <input type="text" placeholder="Nationality" name="nationality" onChange={handleChange} />
+          <input
+            type="text"
+            placeholder="Nationality"
+            name="nationality"
+            onChange={handleChange}
+          />
         </div>
 
         <div className="form-group">
-          <input type="text" placeholder="Passport / ID Number" name="passport" onChange={handleChange} />
+          <input
+            type="text"
+            placeholder="Passport / ID Number"
+            name="passport"
+            onChange={handleChange}
+          />
         </div>
 
         <div className="form-group">
-          <textarea placeholder="Address" name="address" onChange={handleChange}></textarea>
+          <textarea
+            placeholder="Address"
+            name="address"
+            onChange={handleChange}
+          ></textarea>
         </div>
 
         <h3>Contact Details</h3>
         <div className="form-group double">
-          <input type="email" placeholder="Email Address" name="email" onChange={handleChange} />
-          <input type="tel" placeholder="Phone Number" name="phone" onChange={handleChange} />
+          <input
+            type="email"
+            placeholder="Email Address"
+            name="email"
+            onChange={handleChange}
+          />
+          <input
+            type="tel"
+            placeholder="Phone Number"
+            name="phone"
+            onChange={handleChange}
+          />
         </div>
 
         <h3>Professional Details</h3>
         <div className="form-group">
-          <input type="text" placeholder="Pilot ID" name="pilotId" onChange={handleChange} />
-          <input type="text" placeholder="Rank / Role" name="rank" onChange={handleChange} />
-          <input type="text" placeholder="Base Location" name="location" onChange={handleChange} />
+          <input
+            type="text"
+            placeholder="Pilot ID"
+            name="pilotId"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="Rank / Role"
+            name="rank"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="Base Location"
+            name="location"
+            onChange={handleChange}
+          />
           <select name="license" onChange={handleChange}>
             <option value="">License Type</option>
             <option value="PPL">PPL</option>
@@ -133,7 +194,6 @@ export default function Register() {
         <button type="submit" className="submit-btn">
           REGISTER
         </button>
-
       </form>
     </div>
   );
