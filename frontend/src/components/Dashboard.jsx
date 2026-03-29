@@ -47,11 +47,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${config.API_URL}/api/predictions`, {
-      headers: {
-        Authorization: `Bearer ${config.API_KEY}`,
-      },
-    })
+    fetch(`${config.API_URL}/api/predictions`)
       .then((res) => res.json())
       .then((data) => {
         const withRisk = (data || []).map((p) => {
@@ -113,7 +109,7 @@ export default function Dashboard() {
       const text = `${total} Predictions`;
       const textX = Math.round((width - ctx.measureText(text).width) / 2);
       const textY = height / 2;
-      ctx.fillStyle = "#2d2a24"; // Changed to match aesthetic
+      ctx.fillStyle = "#2d2a24";
       ctx.fillText(text, textX, textY);
       ctx.save();
     },

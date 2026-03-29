@@ -33,7 +33,6 @@ export default function Login() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${config.API_KEY}`,
         },
         body: JSON.stringify({ email, password }),
       });

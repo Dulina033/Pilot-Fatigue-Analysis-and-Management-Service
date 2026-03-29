@@ -22,11 +22,7 @@ export default function Reports() {
   const fetchReports = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${config.API_URL}/api/reports/list`, {
-        headers: {
-          Authorization: `Bearer ${config.API_KEY}`,
-        },
-      });
+      const response = await fetch(`${config.API_URL}/api/reports/list`);
       const data = await response.json();
 
       if (data.success) {
@@ -44,11 +40,7 @@ export default function Reports() {
 
   const handleDownload = async (downloadUrl, fileName) => {
     try {
-      const response = await fetch(`${config.API_URL}${downloadUrl}`, {
-        headers: {
-          Authorization: `Bearer ${config.API_KEY}`,
-        },
-      });
+      const response = await fetch(`${config.API_URL}${downloadUrl}`);
       if (!response.ok) {
         throw new Error("Download failed");
       }
@@ -72,11 +64,7 @@ export default function Reports() {
       setPreviewError("");
       console.log("Previewing:", downloadUrl);
 
-      const response = await fetch(`${config.API_URL}${downloadUrl}`, {
-        headers: {
-          Authorization: `Bearer ${config.API_KEY}`,
-        },
-      });
+      const response = await fetch(`${config.API_URL}${downloadUrl}`);
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

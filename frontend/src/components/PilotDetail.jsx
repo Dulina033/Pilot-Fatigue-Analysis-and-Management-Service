@@ -36,11 +36,7 @@ export default function PilotDetail() {
 
   useEffect(() => {
     if (!passedPilot && pilotId) {
-      fetch(`${config.API_URL}/api/predictions`, {
-        headers: {
-          Authorization: `Bearer ${config.API_KEY}`,
-        },
-      })
+      fetch(`${config.API_URL}/api/predictions`)
         .then((res) => res.json())
         .then((list) => {
           const found = list.find(

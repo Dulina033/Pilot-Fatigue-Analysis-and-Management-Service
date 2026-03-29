@@ -1,4 +1,4 @@
-// src/components/Contact.jsx - Updated with API call
+// src/components/Contact.jsx
 import React, { useState } from "react";
 import config from "../config";
 import "./Contact.css";
@@ -38,7 +38,6 @@ const Contact = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${config.API_KEY}`,
         },
         body: JSON.stringify(formData),
       });

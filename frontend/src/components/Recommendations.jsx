@@ -13,11 +13,7 @@ export default function Recommendations() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch(`${config.API_URL}/api/recommendations/${pilotId}`, {
-      headers: {
-        Authorization: `Bearer ${config.API_KEY}`,
-      },
-    })
+    fetch(`${config.API_URL}/api/recommendations/${pilotId}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -149,7 +145,7 @@ export default function Recommendations() {
                 window.open(`${config.API_URL}/api/reports/${pilotData.id}`)
               }
             >
-              <i></i> GENERATE FATIGUE REPORT
+              <i>📄</i> GENERATE FATIGUE REPORT
             </button>
           </div>
         </>
