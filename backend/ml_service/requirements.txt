@@ -7,3 +7,5 @@ matplotlib
 seaborn
 pymongo
 python-dateutil
+flask==2.3.0
+flask-cors==4.0.0
