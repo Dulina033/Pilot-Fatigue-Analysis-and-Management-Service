@@ -31,12 +31,12 @@ exports.uploadRoster = async (req, res) => {
     // Check if pilots exist
     const registeredPilots = await Register.find(
       { pilotId: { $in: excelPilotIds } },
-      { pilotId: 1, fullName: 1, photo: 1, _id: 0 }
+      { pilotId: 1, fullName: 1, photo: 1, _id: 0 },
     );
 
     const registeredIds = registeredPilots.map((p) => p.pilotId);
     const missingIds = excelPilotIds.filter(
-      (id) => !registeredIds.includes(id)
+      (id) => !registeredIds.includes(id),
     );
 
     if (missingIds.length > 0) {
@@ -46,7 +46,7 @@ exports.uploadRoster = async (req, res) => {
       return res.json({
         success: false,
         message: `The following pilots are not registered: ${missingIds.join(
-          ", "
+          ", ",
         )}`,
       });
     }
@@ -77,10 +77,11 @@ exports.uploadRoster = async (req, res) => {
     });
 
     // Call Python prediction service
+    // Call Python prediction service
     const pyResp = await axios.post(
-      "http://localhost:5001/predict",
+      "https://flightara-ml-service.onrender.com/predict",
       { rows: rowsToPredict },
-      { timeout: 120000 }
+      { timeout: 120000 },
     );
 
     const predictions = pyResp.data.predictions || [];
