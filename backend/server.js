@@ -1,8 +1,8 @@
-// backend/server.js 
+// backend/server.js
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-require("dotenv").config(); 
+require("dotenv").config();
 
 const authRoutes = require("./routes/authRoutes");
 const registerRoutes = require("./routes/registerRoutes");
@@ -15,10 +15,24 @@ const contactRoutes = require("./routes/contactRoutes");
 
 const app = express();
 
+// UPDATED CORS CONFIGURATION - Allow multiple frontend URLs
+const allowedOrigins = [
+  "http://localhost:5173", // Local development
+  "https://pilot-fatigue-analysis-and-manageme.vercel.app", // Vercel frontend
+  process.env.FRONTEND_URL, // Fallback from env
+].filter(Boolean);
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg =
+          "The CORS policy for this site does not allow access from the specified Origin.";
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
     credentials: true,
   }),
 );
