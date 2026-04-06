@@ -81,7 +81,7 @@ exports.uploadRoster = async (req, res) => {
     const pyResp = await axios.post(
       "https://flightara-ml-service.onrender.com/predict",
       { rows: rowsToPredict },
-      { timeout: 120000 },
+      { timeout: 180000 },
     );
 
     const predictions = pyResp.data.predictions || [];
